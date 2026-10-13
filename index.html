@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ALPHA BITE | Alpha Restaurant, Kanuru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C62828;--or:#F57C00;--gold:#F9A825;--grn:#2E7D32;--ch:#263238;--bg:#FFF8E7;--card:#fff;--ink:#263238;--mut:#5d6b72;--line:#eadfc4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b2428;--card:#26333a;--ink:#FFF8E7;--mut:#b5c0c5;--line:#36464e}}
+:root[data-theme="dark"]{--bg:#1b2428;--card:#26333a;--ink:#FFF8E7;--mut:#b5c0c5;--line:#36464e}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.5 "DM Sans",system-ui,sans-serif;padding-bottom:84px}
+h1,h2,h3,.pr,.kick{font-family:"Space Grotesk",system-ui,sans-serif}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+[hidden]{display:none!important}
+.sr{position:absolute;left:-9999px}
+.flame{width:26px;height:34px;transform-origin:50% 100%;animation:fl 1.6s ease-in-out infinite}
+@keyframes fl{50%{transform:scaleY(1.08) skewX(-4deg)}}
+header{position:sticky;top:0;z-index:5;background:var(--ch);color:#FFF8E7}
+.hd{max-width:1000px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.lg{display:flex;align-items:center;gap:8px;font:700 20px "Space Grotesk";letter-spacing:.04em;color:#FFF8E7;text-decoration:none;flex:1}
+.loc{font-size:12px;opacity:.85}
+.cartb{background:var(--or);color:#1b1b1b;border:0;border-radius:999px;padding:8px 14px;font-weight:700}
+main{max-width:1000px;margin:0 auto;padding:0 16px}
+.hero{background:radial-gradient(circle at 85% 0,rgba(245,124,0,.55),transparent 55%),var(--ch);color:#FFF8E7;margin:0 -16px;padding:34px 16px 28px;border-radius:0 0 28px 28px}
+.kick{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.hero h2{font-size:clamp(38px,10vw,76px);line-height:1;margin:8px 0 18px}
+.hero em{color:var(--or);font-style:normal}
+input,select,textarea{width:100%;padding:11px 13px;border-radius:12px;border:2px solid var(--line);background:var(--card)}
+.hero input{border-color:transparent;color:#263238;background:#FFF8E7}
+.promos{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 0 6px}
+.promo{flex:0 0 78%;max-width:320px;scroll-snap-align:start;border-radius:18px;padding:18px;color:#fff;text-align:left;border:0}
+.promo b{display:block;font:700 22px "Space Grotesk";line-height:1.1;margin-bottom:6px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 0}
+.chip{white-space:nowrap;border:2px solid var(--line);background:var(--card);border-radius:999px;padding:6px 15px;font-weight:700}
+.chip[aria-pressed=true]{background:var(--red);border-color:var(--red);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 6px 18px rgba(38,50,56,.08);display:flex;flex-direction:column}
+.ph{height:110px;display:grid;place-items:center;font-size:60px;background:linear-gradient(135deg,hsl(var(--h),85%,58%),hsl(calc(var(--h) + 25),90%,45%))}
+.bd{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.tp{display:flex;gap:8px;align-items:center}.tp h3{font-size:18px}
+.dot{width:15px;height:15px;border:2px solid var(--grn);display:grid;place-items:center;flex:none;border-radius:3px}
+.dot::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--grn)}
+.dot.nv{border-color:var(--red)}.dot.nv::after{background:var(--red)}
+.bd p{color:var(--mut);font-size:14px;flex:1}
+.bd select{padding:6px 10px;font-size:14px}
+.rw{display:flex;justify-content:space-between;align-items:center;margin-top:4px}
+.pr{font-size:20px;color:var(--red)}.pr s{font-size:13px;color:var(--mut);font-weight:500}
+.add{border:2px solid var(--grn);background:none;color:var(--grn);border-radius:999px;padding:6px 20px;font-weight:700}
+.add:hover{background:var(--grn);color:#fff}
+.qty{display:inline-flex;align-items:center;background:var(--grn);color:#fff;border-radius:999px}
+.qty button{background:none;border:0;color:#fff;width:36px;height:34px;font-size:20px}.qty span{min-width:22px;text-align:center;font-weight:700}
+.view{padding:22px 0}
+.view h2{font:700 clamp(26px,5vw,38px) "Space Grotesk";margin-bottom:6px}
+.view h3{font-size:20px;margin:22px 0 8px}
+.note{font-size:13px;color:var(--mut);margin:8px 0}
+.demo{display:inline-block;background:var(--gold);color:#3a2600;font-size:11px;font-weight:700;letter-spacing:.08em;padding:2px 9px;border-radius:6px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:10px 0}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.b1,.b2{border-radius:999px;padding:11px 24px;font-weight:700;border:2px solid var(--red);margin:6px 6px 0 0}
+.b1{background:var(--red);color:#fff}.b2{background:none;color:var(--ink);border-color:var(--or)}
+a.b1,a.b2{display:inline-block;text-decoration:none}
+label{display:block;font-weight:700;font-size:14px;margin:12px 0 4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.err{color:var(--red);font-size:14px;min-height:18px}
+.bar{height:14px;border-radius:99px;background:var(--line);overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--or),var(--gold));transition:width .8s}
+.big{font:700 clamp(40px,9vw,64px) "Space Grotesk";line-height:1;color:var(--or)}
+.hb{display:grid;grid-template-columns:110px 1fr 40px;gap:8px;align-items:center;font-size:14px;margin:6px 0}
+.hb i{display:block;height:14px;border-radius:7px;background:var(--or)}
+.steps{list-style:none;padding:0;display:grid;gap:8px}
+.steps li{padding:10px 14px;border-radius:12px;border:2px solid var(--line);color:var(--mut);font-weight:700}
+.steps li.on{border-color:var(--grn);color:var(--ink);background:rgba(46,125,50,.12)}
+.steps li.cur{border-color:var(--or);animation:pu 1.4s infinite}
+@keyframes pu{50%{box-shadow:0 0 0 5px rgba(245,124,0,.25)}}
+nav.bn{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--ch);display:flex;justify-content:space-around;padding:8px 6px calc(8px + env(safe-area-inset-bottom,0px))}
+.bn button{background:none;border:0;color:#cfd8dc;font-size:12px;font-weight:700;padding:4px 14px;min-width:64px;min-height:44px;border-radius:12px}
+.bn button b{display:block;font-size:20px}
+.bn button[aria-current=page]{color:var(--gold)}
+.wl{position:fixed;inset:0;z-index:20;background:radial-gradient(circle at 50% 30%,rgba(245,124,0,.5),transparent 60%),#263238;color:#FFF8E7;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;gap:10px}
+.wl .flame{width:56px;height:74px}
+.wl h1{font-size:clamp(44px,12vw,92px);line-height:.95}
+.bowl{font-size:110px;width:210px;height:210px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--or),var(--red));box-shadow:0 0 70px rgba(245,124,0,.6)}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:8;display:none}.scrim.on{display:block}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--bg);z-index:9;transform:translateX(105%);transition:transform .25s;overflow-y:auto;padding:calc(18px + env(safe-area-inset-top,0px)) 18px calc(24px + env(safe-area-inset-bottom,0px))}
+.drawer.on{transform:none}
+.drawer h2{display:flex;justify-content:space-between;font:700 26px "Space Grotesk"}
+.x{background:none;border:0;font-size:30px;line-height:1}
+#toast{position:fixed;left:50%;bottom:92px;transform:translate(-50%,20px);background:var(--ch);color:#fff;padding:10px 18px;border-radius:999px;z-index:30;opacity:0;pointer-events:none;transition:.25s;font-weight:700}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media(max-width:520px){.loc{display:none}.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="fl" viewBox="0 0 48 64"><defs><linearGradient id="g" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#C62828"/><stop offset=".6" stop-color="#F57C00"/><stop offset="1" stop-color="#F9A825"/></linearGradient></defs><path d="M24 2C26 16 42 24 42 42a18 18 0 01-36 0C6 32 12 26 16 20c1 6 4 8 6 8C20 18 22 10 24 2z" fill="url(#g)"/><path d="M24 33L14 58h5l2-5h6l2 5h5z" fill="#FFF8E7"/></symbol></svg>
+
+<div class="wl" id="welcome" role="dialog" aria-label="Welcome to Alpha Bite">
+<svg class="flame" aria-hidden="true"><use href="#fl"/></svg>
+<p class="kick">ALPHA BITE · Kanuru, Vijayawada</p>
+<h1>Good Food.<br>Bold Mood.</h1>
+<div class="bowl" aria-hidden="true">🍛</div>
+<div><button class="b1" data-act="enter">Explore Menu</button><button class="b2" style="color:#FFF8E7" data-act="enter" data-to="menu">Order Now</button></div>
+<p class="note" style="color:#b5c0c5">Your Cravings. Our Craft.</p>
+</div>
+
+<header><div class="hd"><a class="lg" href="#" data-go="home"><svg class="flame" aria-hidden="true"><use href="#fl"/></svg>ALPHA BITE</a><span class="loc">📍 Kanuru, Vijayawada</span><button class="cartb" data-act="cart" aria-label="Open cart">🛒 <span id="cn">0</span> · <span id="ct">₹0</span></button></div></header>
+
+<main>
+<section id="v-home" class="view" style="padding-top:0">
+<div class="hero"><p class="kick">Alpha Restaurant · Sample menu</p><h2>Your Cravings.<br><em>Our Craft.</em></h2><label class="sr" for="q">Search food</label><input id="q" type="search" placeholder="Search biryani, fries, lime soda..."></div>
+<div class="promos">
+<button class="promo" style="background:linear-gradient(135deg,#C62828,#F57C00)" data-go="saver"><b>Student Saver</b>Meals from ₹99 · Pick your budget →</button>
+<button class="promo" style="background:linear-gradient(135deg,#2E7D32,#1b5e20)" data-go="more" data-sc="cater"><b>Family Feast</b>Party and bulk orders →</button>
+<button class="promo" style="background:linear-gradient(135deg,#F57C00,#b45309)" data-go="rewards"><b>Alpha Rewards</b>Earn demo points →</button></div>
+<div id="reo"></div>
+<div class="chips" id="chips" role="group" aria-label="Categories"></div>
+<div class="grid" id="menu"></div>
+<p class="note"><span class="demo">DEMO</span> Sample dishes and prices. Edit the MENU list at the top of the script to match the real menu.</p>
+</section>
+
+<section id="v-saver" class="view" hidden>
+<h2>Student Saver</h2><p>Set a budget and see what fits.</p>
+<label for="bud">Budget per meal: <b id="bv">₹100</b></label><input id="bud" type="range" min="50" max="300" step="10" value="100" style="padding:0">
+<div id="picks"></div><div class="box" id="combo"></div>
+<h3>Weekly meal planner</h3><button class="b1" data-act="plan">Plan my week</button><div id="week"></div>
+<h3>Savings comparison <span class="demo">SAMPLE PRICES</span></h3><div id="sav"></div>
+<h2 style="margin-top:34px">Alpha AI Food Match</h2><p class="note"><span class="demo">DEMO</span> Rule-based suggestions. No AI model is connected.</p>
+<form id="mf" novalidate><div class="two">
+<div><label for="mb">Budget</label><select id="mb"><option value="100">Up to ₹100</option><option value="150">Up to ₹150</option><option value="250" selected>Up to ₹250</option><option value="700">₹600 or more</option></select></div>
+<div><label for="mc">Craving</label><select id="mc"><option value="spicy">Something spicy</option><option value="crispy">Something crispy</option><option value="rice">Rice and comfort</option><option value="sweet">Something sweet</option><option value="fresh">Something refreshing</option></select></div>
+<div><label for="mh">Hunger</label><select id="mh"><option value="snack">Just a snack</option><option value="regular" selected>Regular meal</option><option value="very">Very hungry</option></select></div>
+<div><label for="md">Diet</label><select id="md"><option value="any">Any</option><option value="veg">Vegetarian</option><option value="nv">Non-vegetarian</option></select></div></div>
+<button class="b1" type="submit">Match me</button></form><div id="mres"></div>
+</section>
+
+<section id="v-rewards" class="view" hidden>
+<h2>Alpha Rewards</h2><p class="note"><span class="demo">DEMO</span> Points and coupons are for the prototype only and cannot be redeemed at the restaurant.</p>
+<div class="box"><p>Your points</p><div class="big" id="pts">0</div><p><b id="lvl">Starter</b> · <span id="nxt"></span></p><div class="bar" role="progressbar" aria-label="Progress to next level" id="pbar"><i id="pfill" style="width:0"></i></div><p class="note">Levels: Starter, Foodie (200), Alpha Legend (500). Earn 1 point per ₹10 on demo orders.</p></div>
+<h3>Today's food discovery</h3><div class="box" id="daily"></div>
+<h3>Sample coupons</h3><div class="box">
+<div class="row"><span><b>ALPHA10</b><br><small>10% off the subtotal</small></span><button class="b2" data-act="usec" data-c="ALPHA10">Use</button></div>
+<div class="row"><span><b>STUDENT20</b><br><small>₹20 off orders of ₹100 or more</small></span><button class="b2" data-act="usec" data-c="STUDENT20">Use</button></div></div>
+<h3>Refer a friend</h3><div class="box"><p>Demo referral code: <b>ALPHA-BITE-DEMO</b></p><button class="b2" data-act="copy">Copy code</button></div>
+</section>
+
+<section id="v-more" class="view" hidden>
+<h2>Order journey</h2><p class="note"><span class="demo">PROTOTYPE</span> This is a simulated tracker, not connected to a real order system.</p>
+<div class="box" id="track"></div>
+
+<h2 id="cater" style="margin-top:30px">Family Feast and party orders</h2>
+<p class="note">Birthday, party and corporate orders. Submitting prepares a WhatsApp message to the restaurant.</p>
+<form id="cf" novalidate class="box"><div class="two"><div><label for="cn1">Name</label><input id="cn1" autocomplete="name"></div><div><label for="cp">Phone</label><input id="cp" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10 digits"></div><div><label for="cd">Preferred date</label><input id="cd" type="date"></div><div><label for="cg">Guests</label><input id="cg" type="number" min="5" placeholder="e.g. 25"></div></div><label for="cx">Special requests</label><textarea id="cx" rows="3"></textarea><div class="err" id="cerr" role="alert"></div><button class="b1" type="submit">Send enquiry</button><div id="cok"></div></form>
+
+<h2 style="margin-top:30px">Owner dashboard <span class="demo">DEMO DATA</span></h2>
+<div id="dash"></div>
+
+<h2 style="margin-top:30px">Feedback</h2>
+<form id="ff" novalidate class="box"><label for="fr">Rating</label><select id="fr"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><label for="fc">Comment</label><textarea id="fc" rows="3"></textarea><div class="err" id="ferr" role="alert"></div><button class="b1" type="submit">Submit feedback</button><p class="note" id="fok"></p></form>
+<p style="margin-top:14px"><a class="b1" href="https://wa.me/917032949068?text=Hi%20Alpha%20Restaurant">WhatsApp us</a> <span class="note">Instagram: add your handle here (placeholder)</span></p>
+</section>
+</main>
+
+<nav class="bn" aria-label="Main">
+<button data-go="home" aria-current="page"><b>🏠</b>Home</button><button data-go="saver"><b>🎓</b>Saver</button><button data-go="rewards"><b>⭐</b>Rewards</button><button data-go="more"><b>☰</b>More</button></nav>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Your cart" aria-hidden="true"><div id="cv"></div></aside>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* EDIT HERE: sample menu. n=name d=description p=price w=separate price (for savings) v=1 veg c=category e=icon h=colour o=options k=tags fam=family pack */
+const M=[
+{n:"Chicken Dum Biryani",d:"Slow-cooked basmati with whole spices and raita",p:220,v:0,c:"Biryani",e:"🍛",h:12,o:["Medium","Mild","Extra spicy"],k:["spicy","rice"]},
+{n:"Veg Biryani",d:"Fragrant rice with garden vegetables",p:160,v:1,c:"Biryani",e:"🍚",h:95,o:["Medium","Mild","Extra spicy"],k:["rice","spicy"]},
+{n:"Chicken 65",d:"Crispy, spicy and tossed with curry leaf",p:180,v:0,c:"Starters",e:"🍗",h:25,o:["Medium","Mild","Extra spicy"],k:["spicy","crispy"]},
+{n:"Paneer Tikka",d:"Marinated paneer grilled till smoky",p:170,v:1,c:"Starters",e:"🧆",h:40,k:["spicy"]},
+{n:"Crispy French Fries",d:"Golden fries, hot and salty",p:90,v:1,c:"Snacks",e:"🍟",h:45,o:["Salted","Peri-peri"],k:["crispy"]},
+{n:"Classic Burger",d:"Juicy patty, fresh veg and house sauce",p:130,v:0,c:"Snacks",e:"🍔",h:20,k:["crispy","comfort"]},
+{n:"Fresh Lime Soda",d:"Chilled and fizzy",p:50,v:1,c:"Drinks",e:"🍋",h:70,o:["Sweet","Salted"],k:["fresh"]},
+{n:"Gulab Jamun",d:"Two warm syrup-soaked dumplings",p:60,v:1,c:"Desserts",e:"🍮",h:5,k:["sweet"]},
+{n:"Student Meal Combo",d:"Rice, dal, veg curry, curd",p:99,w:139,v:1,c:"Combos",e:"🍱",h:110,k:["rice","comfort"]},
+{n:"Student Chicken Combo",d:"Rice, chicken curry, dal, curd",p:129,w:179,v:0,c:"Combos",e:"🍱",h:30,k:["rice","spicy"]},
+{n:"Family Biryani Combo",d:"Serves 4: biryani, 65, raita, 4 drinks",p:599,w:760,v:0,c:"Combos",e:"🍲",h:8,fam:1,k:["rice","spicy"]}];
+const $=s=>document.querySelector(s),rs=n=>"₹"+Math.round(n).toLocaleString("en-IN"),esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let S={pts:0,orders:0,last:null};try{Object.assign(S,JSON.parse(localStorage.getItem("ab")||"{}"))}catch(e){}
+const sv=()=>{try{localStorage.setItem("ab",JSON.stringify(S))}catch(e){}};
+let cart={},cat="All",q="",mode="delivery",fee=30,coupon="",conf=null,stage=-1,timer=null;
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("on"),2200)}
+const K=(i,o)=>i+"|"+o,defO=i=>M[i].o?M[i].o[0]:"Regular";
+function ctl(i,o){const k=K(i,o),n=cart[k]||0;return n?`<div class="qty"><button data-q="-1" data-k="${k}" aria-label="Remove one">−</button><span>${n}</span><button data-q="1" data-k="${k}" aria-label="Add one">+</button></div>`:`<button class="add" data-add="${i}">Add</button>`}
+function card(x,i){return`<article class="card"><div class="ph" style="--h:${x.h}" aria-hidden="true">${x.e}</div><div class="bd"><div class="tp"><span class="dot ${x.v?"":"nv"}" title="${x.v?"Vegetarian":"Non-vegetarian"}"></span><h3>${x.n}</h3></div><p>${x.d}</p>${x.o?`<select data-opt="${i}" aria-label="Options for ${x.n}">${x.o.map(a=>`<option>${a}</option>`).join("")}</select>`:""}<div class="rw"><b class="pr">${rs(x.p)}${x.w?` <s>${rs(x.w)}</s>`:""}</b><span id="c${i}">${ctl(i,defO(i))}</span></div></div></article>`}
+function renderMenu(){
+$("#chips").innerHTML=["All",...new Set(M.map(x=>x.c))].map(c=>`<button class="chip" aria-pressed="${c===cat}" data-cat="${c}">${c}</button>`).join("");
+const l=M.map((x,i)=>[x,i]).filter(([x])=>(cat==="All"||x.c===cat)&&(x.n+x.d).toLowerCase().includes(q));
+$("#menu").innerHTML=l.length?l.map(([x,i])=>card(x,i)).join(""):`<p class="note">No dishes match. Try another word or category.</p>`;
+$("#reo").innerHTML=S.last&&Object.keys(S.last).length?`<button class="b2" data-act="reorder">↻ Reorder your last demo order</button>`:""}
+function refresh(){M.forEach((x,i)=>{const e=$("#c"+i);if(e){const s=document.querySelector(`[data-opt="${i}"]`);e.innerHTML=ctl(i,s?s.value:defO(i))}});const c=calc();$("#cn").textContent=c.n;$("#ct").textContent=rs(c.sub)}
+function calc(){let sub=0,n=0;for(const k in cart){sub+=M[+k.split("|")[0]].p*cart[k];n+=cart[k]}let d=0;if(coupon==="ALPHA10")d=sub*.1;else if(coupon==="STUDENT20"&&sub>=100)d=20;const f=n&&mode==="delivery"?fee:0;return{sub,n,d,f,t:Math.max(0,sub-d+f)}}
+function add(i,o){const k=K(i,o);cart[k]=(cart[k]||0)+1;refresh();upCart();toast("Added "+M[i].n)}
+function chg(k,d){cart[k]=(cart[k]||0)+d;if(cart[k]<=0)delete cart[k];refresh();upCart()}
+function lines(){return Object.keys(cart).map(k=>{const[i,o]=k.split("|"),x=M[+i];return`<div class="row"><span><b>${x.n}</b><br><small>${o!=="Regular"?o+" · ":""}${rs(x.p)}</small></span><span style="display:flex;gap:10px;align-items:center"><span class="qty"><button data-q="-1" data-k="${k}" aria-label="Remove one">−</button><span>${cart[k]}</span><button data-q="1" data-k="${k}" aria-label="Add one">+</button></span><b>${rs(x.p*cart[k])}</b></span></div>`}).join("")}
+function sum(){const c=calc();return`<div class="row"><span>Subtotal</span><b>${rs(c.sub)}</b></div>${c.d?`<div class="row"><span>Coupon ${coupon}</span><b>−${rs(c.d)}</b></div>`:""}<div class="row"><span>Delivery fee</span><b>${rs(c.f)}</b></div><div class="row" style="font:700 22px 'Space Grotesk'"><span>Total</span><span>${rs(c.t)}</span></div>`}
+function upCart(){if(!$("#drawer").classList.contains("on")||conf)return;if(!calc().n)return renderCart();$("#ln").innerHTML=lines();$("#sm").innerHTML=sum()}
+function renderCart(){
+if(conf){$("#cv").innerHTML=`<h2>Order placed (demo) <button class="x" data-act="close" aria-label="Close">×</button></h2><div class="box"><p><span class="demo">SIMULATED</span></p><p style="margin-top:8px"><b>${conf.id}</b> for ${esc(conf.name)}. Total ${rs(conf.t)}. No payment was taken and nothing was sent to the restaurant.</p><p>You earned <b>${conf.pts}</b> demo reward points.</p></div><button class="b1" data-act="track">Track this order</button><a class="b2" href="https://wa.me/917032949068?text=${encodeURIComponent(conf.msg)}">Send as WhatsApp enquiry</a>`;return}
+if(!calc().n){$("#cv").innerHTML=`<h2>Your cart <button class="x" data-act="close" aria-label="Close">×</button></h2><p class="note" style="margin-top:20px">Your cart is empty. Add dishes from the menu.</p>`;return}
+$("#cv").innerHTML=`<h2>Your cart <button class="x" data-act="close" aria-label="Close">×</button></h2><div id="ln">${lines()}</div>
+<label for="cp2">Coupon code</label><div style="display:flex;gap:8px"><input id="cp2" value="${coupon}" placeholder="ALPHA10 or STUDENT20"><button class="b2" style="margin:0" data-act="apply">Apply</button></div><div class="err" id="cpe"></div>
+<label for="fe">Delivery fee (sample, editable)</label><input id="fe" type="number" min="0" value="${fee}">
+<div id="sm">${sum()}</div>
+<p><span class="demo">SIMULATED CHECKOUT</span> <small>No real payment.</small></p>
+<div class="two" role="group" aria-label="Order type"><label><input type="radio" name="md" value="delivery" ${mode==="delivery"?"checked":""} style="width:auto"> Delivery</label><label><input type="radio" name="md" value="takeaway" ${mode==="takeaway"?"checked":""} style="width:auto"> Takeaway</label></div>
+<label for="nm">Name</label><input id="nm" autocomplete="name"><label for="ph">Phone</label><input id="ph" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10 digits">
+<div id="ab" ${mode==="takeaway"?"hidden":""}><label for="ad">Delivery address</label><textarea id="ad" rows="2" autocomplete="street-address"></textarea></div>
+<div class="err" id="er" role="alert"></div><button class="b1" style="width:100%" data-act="place">Place demo order</button>`}
+function place(){const nm=$("#nm").value.trim(),ph=$("#ph").value.trim(),ad=$("#ad")?$("#ad").value.trim():"",e=$("#er");
+if(nm.length<2)return e.textContent="Please enter your name.";
+if(!/^[6-9]\d{9}$/.test(ph))return e.textContent="Enter a valid 10 digit Indian mobile number.";
+if(mode==="delivery"&&ad.length<8)return e.textContent="Please enter your full delivery address.";
+const c=calc(),pts=Math.floor(c.t/10),id="AB"+Math.floor(1000+Math.random()*9000);
+const msg="ALPHA BITE order "+id+"\n"+Object.keys(cart).map(k=>{const[i,o]=k.split("|");return cart[k]+" x "+M[+i].n+(o!=="Regular"?" ("+o+")":"")}).join("\n")+"\nTotal: "+rs(c.t)+"\n"+(mode==="delivery"?"Delivery: "+ad:"Takeaway")+"\nName: "+nm+" Phone: "+ph;
+S.pts+=pts;S.orders++;S.last=Object.assign({},cart);sv();conf={id,name:nm,t:c.t,pts,msg};cart={};coupon="";refresh();renderCart();renderMenu();rewards();startTrack()}
+function openCart(){conf=null;renderCart();$("#drawer").classList.add("on");$("#scrim").classList.add("on");$("#drawer").setAttribute("aria-hidden","false")}
+function closeCart(){$("#drawer").classList.remove("on");$("#scrim").classList.remove("on");$("#drawer").setAttribute("aria-hidden","true");conf=null}
+const STEPS=["Order placed","Preparing","Ready","Out for delivery","Delivered"];
+function startTrack(){stage=0;clearInterval(timer);drawTrack();timer=setInterval(()=>{if(stage<4){stage++;drawTrack()}else clearInterval(timer)},4000)}
+function drawTrack(){$("#track").innerHTML=stage<0?`<p class="note">No active order. Place a demo order to watch the journey.</p>`:`<ol class="steps">${STEPS.map((s,i)=>`<li class="${i<=stage?"on":""} ${i===stage&&stage<4?"cur":""}">${i<stage||stage===4?"✓":i+1}. ${s}</li>`).join("")}</ol>`}
+function rewards(){const p=S.pts,l=p>=500?"Alpha Legend":p>=200?"Foodie":"Starter",nx=p>=500?null:p>=200?500:200,base=p>=200?200:0;
+$("#pts").textContent=p;$("#lvl").textContent=l;$("#nxt").textContent=nx?(nx-p)+" points to next level":"Top level reached";
+const w=nx?Math.min(100,(p-(p>=200?200:0))/(nx-base)*100):100;$("#pfill").style.width=w+"%";$("#pbar").setAttribute("aria-valuenow",Math.round(w));
+const d=M[Math.floor(Date.now()/864e5)%M.length];$("#daily").innerHTML=`<p>${d.e} <b>${d.n}</b> · ${rs(d.p)}</p><p class="note">${d.d}</p><button class="b2" data-add="${M.indexOf(d)}">Add to cart</button>`}
+function saver(){const b=+$("#bud").value;$("#bv").textContent=rs(b);
+const ok=M.map((x,i)=>[x,i]).filter(([x])=>x.p<=b&&!x.fam).sort((a,c)=>c[0].p-a[0].p);
+$("#picks").innerHTML=ok.length?`<h3>Fits ${rs(b)}</h3>`+ok.slice(0,6).map(([x,i])=>`<div class="row"><span>${x.e} <b>${x.n}</b><br><small>${x.d}</small></span><span style="display:flex;gap:8px;align-items:center"><b class="pr">${rs(x.p)}</b><button class="add" data-add="${i}">Add</button></span></div>`).join(""):`<p class="note">Nothing fits that budget. Try raising it.</p>`;
+let best=null;const p=M.map((x,i)=>[x,i]).filter(([x])=>!x.fam);for(let a=0;a<p.length;a++)for(let c=a+1;c<p.length;c++){const t=p[a][0].p+p[c][0].p;if(t<=b&&(!best||t>best.t))best={a:p[a],c:p[c],t}}
+$("#combo").innerHTML=best?`<b>Suggested combo</b><p>${best.a[0].e} ${best.a[0].n} + ${best.c[0].e} ${best.c[0].n} = <b>${rs(best.t)}</b></p><button class="b2" data-add="${best.a[1]}">Add first</button><button class="b2" data-add="${best.c[1]}">Add second</button>`:`<b>Suggested combo</b><p class="note">Raise the budget to see a two-item combo.</p>`}
+function plan(){const b=+$("#bud").value,pool=M.filter(x=>x.p<=b&&!x.fam&&x.c!=="Drinks"&&x.c!=="Desserts").sort((a,c)=>c.p-a.p);
+if(!pool.length){$("#week").innerHTML=`<p class="note">Raise your budget to plan meals.</p>`;return}
+const days=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],pk=days.map((d,i)=>pool[i%pool.length]),t=pk.reduce((s,x)=>s+x.p,0);
+$("#week").innerHTML=`<div class="box">${days.map((d,i)=>`<div class="row"><span><b>${d}</b> ${pk[i].e} ${pk[i].n}</span><b>${rs(pk[i].p)}</b></div>`).join("")}<p style="margin-top:10px">Plan total <b>${rs(t)}</b> vs weekly budget ${rs(b*7)}. Left over: <b>${rs(b*7-t)}</b>.</p></div>`}
+function sav(){$("#sav").innerHTML=M.filter(x=>x.w).map(x=>`<div class="row"><span>${x.e} ${x.n}<br><small>${rs(x.p)} vs ${rs(x.w)} ordered separately</small></span><b style="color:var(--grn)">Save ${rs(x.w-x.p)}</b></div>`).join("")}
+function match(){const b=+$("#mb").value,cr=$("#mc").value,hg=$("#mh").value,dt=$("#md").value;
+const r=M.map((x,i)=>{if(x.p>b||(dt==="veg"&&!x.v)||(dt==="nv"&&x.v)||(x.fam&&b<600))return null;let s=0,why=[];
+if(x.k.includes(cr)){s+=4;why.push("matches your "+cr+" craving")}
+if(hg==="snack"&&x.p<=100){s+=2;why.push("light enough for a snack")}
+if(hg==="very"&&(x.c==="Biryani"||x.c==="Combos")){s+=2;why.push("filling for a big appetite")}
+if(hg==="regular"&&x.p>=90&&x.p<=200){s+=1;why.push("a good regular meal size")}
+why.push("fits "+rs(b)+(b>=700?"+":""));return{x,i,s,why}}).filter(Boolean).sort((a,c)=>c.s-a.s).slice(0,3);
+$("#mres").innerHTML=r.length?`<span class="demo">DEMO RECOMMENDATIONS</span>`+r.map(m=>`<div class="box"><b>${m.x.e} ${m.x.n}</b> · ${rs(m.x.p)}<br><small>${m.why.join(", ")}.</small><br><button class="add" style="margin-top:8px" data-add="${m.i}">Add</button></div>`).join(""):`<p class="note">No match for that combination. Try a higher budget or Diet: Any.</p>`}
+function dash(){const bars=(a,m)=>a.map(([n,v])=>`<div class="hb"><span>${n}</span><i style="width:${v/m*100}%"></i><b>${v}</b></div>`).join("");
+$("#dash").innerHTML=`<div class="two"><div class="box"><p class="note">Sample orders</p><div class="big">242</div></div><div class="box"><p class="note">Sample sales</p><div class="big">₹41.3k</div></div></div>
+<div class="box"><b>Best sellers</b>${bars([["Dum Biryani",86],["Student Combo",74],["Chicken 65",52],["Burger",41],["Lime Soda",39]],86)}</div>
+<div class="box"><b>Orders by day</b>${bars([["Mon",18],["Tue",22],["Wed",19],["Thu",27],["Fri",35],["Sat",48],["Sun",41]],48)}</div>
+<div class="box"><b>Categories</b>${bars([["Biryani",38],["Combos",27],["Starters",14],["Snacks",12],["Drinks",9]],38)}</div>
+<div class="box"><b>Campaigns</b><div class="row"><span>Student offer</span><small>4.2k reach · 310 clicks · 46 orders</small></div><div class="row"><span>Birthday week</span><small>2.8k reach · 190 clicks · 21 orders</small></div><p class="note">Enquiries this month: 18 (demo).</p></div>`}
+function go(v,sc){document.querySelectorAll(".view").forEach(s=>s.hidden=s.id!=="v-"+v);document.querySelectorAll(".bn button").forEach(b=>b.dataset.go===v?b.setAttribute("aria-current","page"):b.removeAttribute("aria-current"));
+window.scrollTo(0,0);if(sc)setTimeout(()=>{const e=document.getElementById(sc);e&&e.scrollIntoView()},30)}
+document.addEventListener("click",e=>{const b=e.target.closest("button,a");if(!b)return;const d=b.dataset;
+if(d.cat){cat=d.cat;renderMenu()}
+else if(d.add!==undefined){const i=+d.add,s=document.querySelector(`[data-opt="${i}"]`);add(i,s?s.value:defO(i))}
+else if(d.q)chg(d.k,+d.q);
+else if(d.go){e.preventDefault();go(d.go,d.sc)}
+else if(d.act){const a=d.act;
+if(a==="enter"){$("#welcome").hidden=true;if(d.to==="menu")setTimeout(()=>$("#chips").scrollIntoView(),30)}
+else if(a==="cart")openCart();else if(a==="close")closeCart();else if(a==="place")place();
+else if(a==="apply"){const c=$("#cp2").value.trim().toUpperCase();if(c===""||c==="ALPHA10"||c==="STUDENT20"){coupon=c;toast(c?"Coupon applied":"Coupon removed");$("#cpe").textContent="";upCart()}else $("#cpe").textContent="That code is not valid. Try ALPHA10 or STUDENT20."}
+else if(a==="plan")plan();
+else if(a==="usec"){coupon=d.c;openCart();toast("Coupon "+d.c+" ready")}
+else if(a==="copy"){try{navigator.clipboard.writeText("ALPHA-BITE-DEMO").then(()=>toast("Code copied"),()=>toast("Copy not available"))}catch(x){toast("Copy not available")}}
+else if(a==="reorder"){Object.keys(S.last).forEach(k=>{if(M[+k.split("|")[0]])cart[k]=S.last[k]});refresh();openCart()}
+else if(a==="track"){closeCart();go("more","track")}}});
+document.addEventListener("change",e=>{const t=e.target;
+if(t.dataset.opt!==undefined){const i=+t.dataset.opt;$("#c"+i).innerHTML=ctl(i,t.value)}
+else if(t.name==="md"){mode=t.value;$("#ab").hidden=mode==="takeaway";upCart()}
+else if(t.id==="fe"){fee=Math.max(0,+t.value||0);upCart()}});
+document.addEventListener("input",e=>{if(e.target.id==="q"){q=e.target.value.trim().toLowerCase();renderMenu()}if(e.target.id==="bud")saver()});
+$("#scrim").addEventListener("click",closeCart);document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
+$("#mf").addEventListener("submit",e=>{e.preventDefault();match()});
+$("#cf").addEventListener("submit",e=>{e.preventDefault();const n=$("#cn1").value.trim(),p=$("#cp").value.trim(),dt=$("#cd").value,g=+$("#cg").value,x=$("#cx").value.trim(),r=$("#cerr");$("#cok").innerHTML="";
+if(n.length<2)return r.textContent="Please enter your name.";if(!/^[6-9]\d{9}$/.test(p))return r.textContent="Enter a valid 10 digit mobile number.";
+if(!dt||dt<new Date().toISOString().slice(0,10))return r.textContent="Choose a date from today onwards.";if(!(g>=5))return r.textContent="Enter the number of guests (at least 5).";
+r.textContent="";const m="Catering enquiry\nName: "+n+"\nPhone: "+p+"\nDate: "+dt+"\nGuests: "+g+(x?"\nRequests: "+x:"");
+$("#cok").innerHTML=`<div class="box"><b>Enquiry ready, ${esc(n)}.</b><p>Tap below to send it to the restaurant on WhatsApp.</p><a class="b1" href="https://wa.me/917032949068?text=${encodeURIComponent(m)}">Send on WhatsApp</a></div>`});
+$("#ff").addEventListener("submit",e=>{e.preventDefault();if($("#fc").value.trim().length<5)return $("#ferr").textContent="Please write at least a few words.";$("#ferr").textContent="";$("#fok").textContent="Thanks! This is a demo form: your feedback is not sent anywhere.";$("#fc").value=""});
+$("#cd").min=new Date().toISOString().slice(0,10);
+renderMenu();saver();sav();rewards();dash();drawTrack();refresh();
+</script>
+</body>
+</html>
